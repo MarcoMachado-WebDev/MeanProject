@@ -79,7 +79,7 @@ router.get("/:id", (req,res,next) => {
 })
 
 router.delete("/:id",checkAuth,(req, res, next)=>{
-
+    console.log('wqer');
     Post.deleteOne({
         _id: req.params.id
         })
