@@ -6,7 +6,7 @@ const path = require('path');
 const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
 
-mongoose.connect('mongodb+srv://Marco:hHmvWirOIDUzP3q8@cluster0.doec1.mongodb.net/node-angular?retryWrites=true&w=majority', {useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect('mongodb+srv://Marco:'+process.env.MONGO_PW+'@cluster0.doec1.mongodb.net/node-angular?retryWrites=true&w=majority', {useNewUrlParser:true,useUnifiedTopology:true})
   .then(() => {
     console.log('Connected to database');
   })
