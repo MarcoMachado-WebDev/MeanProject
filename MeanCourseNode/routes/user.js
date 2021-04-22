@@ -45,11 +45,11 @@ router.post("/login", (req, res, next)=> {
                     message: 'Auth failed'
                 });
             }
-            console.log('OLA!!!!!!!!!!!' + userData);
             const token = jwt.sign({email: userData.email, userId: userData._id}, "secret_this_should_be_longer", {expiresIn: "1h"});
             res.status(200).json({
                 token: token,
-                expiresIn: 3600
+                expiresIn: 3600,
+                userId: userData._id
             })
         })
         .catch(err => {
