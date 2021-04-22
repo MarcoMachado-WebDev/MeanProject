@@ -31,6 +31,8 @@ const storage = multer.diskStorage({
 });
   
 router.post("", checkAuth,multer({storage:storage}).single("image"), (req,res,next) => {
+    console.log('ue');
+    console.log(req.userData);
     const url = req.protocol + '://' + req.get("host");
     const post = new Post({
         title: req.body.title,

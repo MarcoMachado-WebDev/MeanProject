@@ -4,7 +4,10 @@ module.exports = (req, res, next) => {
     try{
         const token = req.headers.authorization.split(" ")[1];
         const userData = jwt.verify(token, "secret_this_should_be_longer");
-        req.userData = {email: userData.email, userId:userData.useId};
+        console.log(userData);
+        req.userData = {email: userData.email, userId:userData.userId};
+        console.log(req.userData);
+
         next();
     }catch(error){
         res.status(401).json({message: "Auth failled"})
